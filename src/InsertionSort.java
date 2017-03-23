@@ -18,14 +18,14 @@ public class InsertionSort {
 		for (int j = 1; j < n; j++) {
 			int newValue = sorted[j];
 			gui.display("Key is ", newValue);
-			int i = j-1;
-			while ( (i > -1) && ( sorted [i] > newValue ) ) {
-				out.printf("%d at %d is bigger than key of %d at %d.\n", sorted[i], i, newValue, j);
-				out.printf("Shifting %d in to %d. ", sorted[i], sorted[i+1]);
-				sorted [i+1] = sorted [i];
-				i--;
+			int holePosition = j;
+			while ( (holePosition > 0) && ( sorted[holePosition-1] > newValue ) ) {
+				out.printf("%d at %d is bigger than %d at %d.\n", sorted[holePosition-1], holePosition-1, newValue, holePosition);
+				out.printf("Shifting %d in to %d. ", sorted[holePosition], sorted[holePosition-1]);
+				sorted [holePosition] = sorted [holePosition-1];
+				holePosition--;
 			}
-			sorted[i+1] = newValue;
+			sorted[holePosition] = newValue;
 			out.printf("%s\n\n", gui.display(sorted));
 
 		}
