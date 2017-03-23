@@ -15,4 +15,13 @@ public class ArrayGenerator {
 		}
 		return array;
 	}
+
+	int[] copyArray(int[] unsorted) {
+		int length = unsorted.length;
+		int[] copy = new int[length];
+		for(int i = 0; i < length; i++) {
+			copy[i] = unsorted[i];
+		}
+		return copy;
+	}
 }

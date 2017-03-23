@@ -1,18 +1,19 @@
-import static java.lang.System.out;
-
 /**
  * Created by jpknox on 23/03/17.
  */
 public class BubbleSort {
 
-	Gui gui;
+	private Gui gui;
+	private ArrayGenerator arrayGenerator;
+
 
 	public BubbleSort() {
 		this.gui = new Gui();
+		this.arrayGenerator = new ArrayGenerator();
 	}
 
 	public int[] sortAscending(int[] unsorted) {
-		int[] toSort = copyArray(unsorted);
+		int[] toSort = arrayGenerator.copyArray(unsorted);
 		int length = toSort.length;
 
 		int outer, inner, next;
@@ -28,7 +29,7 @@ public class BubbleSort {
 	}
 
 	public int[] sortDescending(int[] unsorted) {
-		int[] toSort = copyArray(unsorted);
+		int[] toSort = arrayGenerator.copyArray(unsorted);
 		int length = toSort.length;
 
 		int outer, inner, next;
@@ -47,15 +48,6 @@ public class BubbleSort {
 		int temp = toSort[first];
 		toSort[first] = toSort[second];
 		toSort[second] = temp;
-	}
-
-	private int[] copyArray(int[] unsorted) {
-		int length = unsorted.length;
-		int[] copy = new int[length];
-		for(int i = 0; i < length; i++) {
-			copy[i] = unsorted[i];
-		}
-		return copy;
 	}
 
 
