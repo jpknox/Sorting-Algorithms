@@ -5,7 +5,6 @@ public class Gui {
 
 
 	public void display(String prefix, int[] unsorted, String suffix) {
-
 		System.out.printf("%s ", prefix);
 		displayArray(unsorted);
 		System.out.printf("%s\n", suffix);
