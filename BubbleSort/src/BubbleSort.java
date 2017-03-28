@@ -12,6 +12,68 @@ public class BubbleSort {
 		this.arrayGenerator = new ArrayGenerator();
 	}
 
+
+	public int sortAscendingV2(int[] array) {
+		int outer, inner;
+		int length = array.length;
+		boolean swapped;
+		int swaps = 0;
+
+		for (outer = length-1; outer < length; outer--) {
+			swapped = false;
+			for (inner = 0; inner < outer; inner++) {
+				if (array[inner] > array[inner+1]) {
+					swap(array, inner, inner+1);
+					swaps++;
+					swapped = true;
+				}
+			}
+			if (!swapped && outer == length-1) {
+				System.out.printf("The array happens to already be sorted. Swaps %d\n", swaps);
+				break;
+			}
+		}
+		return swaps;
+	}
+
+	public int sortDescendingV2(int[] array) {
+		int outer, inner;
+		int length = array.length;
+		boolean swapped;
+		int swaps = 0;
+
+		for (outer = length-1; outer < length; outer--) {
+			swapped = false;
+			for (inner = 0; inner < outer; inner++) {
+				if (array[inner] < array[inner+1]) {
+					swap(array, inner, inner+1);
+					swaps++;
+					swapped = true;
+				}
+			}
+			if (!swapped && outer == length-1) {
+				System.out.printf("The array happens to already be sorted. Swaps %d\n", swaps);
+				break;
+			}
+		}
+		return swaps;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public int[] sortAscending(int[] unsorted) {
 		int[] toSort = arrayGenerator.copyArray(unsorted);
 		int length = toSort.length;
@@ -61,10 +123,10 @@ public class BubbleSort {
 		return toSort;
 	}
 
-	private void swap(int[] toSort, int first, int second) {
-		int temp = toSort[first];
-		toSort[first] = toSort[second];
-		toSort[second] = temp;
+	private void swap(int[] toSort, int a, int b) {
+		int temp = toSort[a];
+		toSort[a] = toSort[b];
+		toSort[b] = temp;
 	}
 
 
